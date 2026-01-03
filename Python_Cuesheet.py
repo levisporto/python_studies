@@ -16,13 +16,11 @@ else:
 
 #For loop (also using a f-string, a Formatted String Literal)
 numbers = [1, 2, 3]
-
 for num in numbers:
     print(f"Lets count using a for loop: {num}...")
 
 # You can use format() to interpolate formatted strings
-    print("Lets count using a for loop: {}".format(num))
-
+print("Lets count using a for loop: {}".format(num))
 # Match-case statement (like switch-case in Javascript)
 num = 1
 match num:
