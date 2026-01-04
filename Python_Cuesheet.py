@@ -114,53 +114,59 @@
 
 #This is a little Player vs COM Russian Rollete game for studying Python loops and conditionals:
 
-import random
-decide_player = random.randint(0, 1)
-if decide_player == 0:
-    print("You start first!")
-    userPhase = True
-else:
-    print("Computer starts first!")   
-    userPhase = False
+#import random
+#decide_player = random.randint(0, 1)
+#if decide_player == 0:
+#    print("You start first!")
+#    userPhase = True
+#else:
+#    print("Computer starts first!")   
+#    userPhase = False
 
-if userPhase == True:
-    player = "You"
-else:
-     player = "Computer"
+#if userPhase:
+#    player = "You"
+#else:
+#     player = "Computer"
 
-russian_roullete = random.randint(1, 6)
-round = 1
+#russian_roullete = random.randint(1, 6)
+#round = 1
 
 
 
-while russian_roullete  !=1:
-            print(f"This is Round {round}. {player} are now spinning the cylinder...")
-            print(f"What a Miracle! {player} pull the trigger but nothing happens!")
-            round += 1
-            if player == "You" :
-               player = "Computer"
-            else:
-                 player = "You"
-            print(f"Now it's {player}!")
-            russian_roullete = random.randint(1, 6)
+#while russian_roullete  !=1:
+#            print(f"This is Round {round}. {player} are now spinning the cylinder...")
+#            print(f"What a Miracle! {player} pull the trigger but nothing happens!")
+#            round += 1
+#            if player == "You" :
+#               player = "Computer"
+#            else:
+#                 player = "You"
+#            print(f"Now it's {player}!")
+#            russian_roullete = random.randint(1, 6)
         
-else:
-        print(f"This is Round {round}. {player} is now spinning the cylinder...")
-        print(f"Oops! {player} died! Oh my god!")
+#else:
+#        print(f"This is Round {round}. {player} is now spinning the cylinder...")
+#        print(f"Oops! {player} died! Oh my god!")
 
 
 
+import urllib.request
+import json
 
-       
+url = "https://bored-api.appbrewery.com/random"
 
+try:
+    with urllib.request.urlopen(url) as response:
+        raw_data = response.read().decode('utf-8')
+        data = json.loads(raw_data)
+        
+        # Debugging step: see the whole dictionary
+        # print(data) 
+        
+        # The Bored API has 'activity' at the top level
+        activity = data['activity']
+        print(f"I was bored, so the computer told me to: {activity}")
 
-#while russian_roullete  != 1:
-#        time = 1
-#        print(f"You survived {time} times!")
-#        time = time +1
-#        russian_roullete = random.randint(0, 1)
-#if russian_roullete  == 0:
-#        print("Oops! You died! Sorry.")
-
-    
+except Exception as e:
+    print(f"Failed to get data: {e}")
 
