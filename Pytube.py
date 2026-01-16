@@ -10,5 +10,5 @@ def Download(link):
 link = input("Enter the link to the video:")
 Download(link)
 
-"lmao now ASA is a contributor"
+"lmao now LINUS TORVALDS is a contributor"
 
